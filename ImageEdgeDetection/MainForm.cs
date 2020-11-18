@@ -53,7 +53,7 @@ namespace ImageEdgeDetection
 
         private void BtnSaveNewImage_Click(object sender, EventArgs e)
         {
-            ApplyEdgeDetection(false);
+            TreatImage(false);
 
             if (resultBitmap != null)
             {
@@ -102,7 +102,7 @@ namespace ImageEdgeDetection
             }
             else
             {
-                selectedSource = originalBitmap;
+                selectedSource = resultBitmap;
             }
 
             if (selectedSource != null)
@@ -183,18 +183,15 @@ namespace ImageEdgeDetection
 
             if (bitmapResult != null)
             {
-                if (preview == true)
-                {
-                    picPreview.Image = bitmapResult;
-                }
-                else
+                if (preview != true)
                 {
                     resultBitmap = bitmapResult;
                 }
+                picPreview.Image = bitmapResult;
             }
         }
 
-        private void ApplyFilters()
+        private void ApplyFilters(bool isPreview)
         {
             Bitmap bitmapResult = originalBitmap;
             Bitmap source = previewBitmap;
@@ -212,7 +209,10 @@ namespace ImageEdgeDetection
                     bitmapResult = source.ApplyRainbowFilter();
                 }
             }
-            previewBitmap = bitmapResult;
+
+            if(isPreview) previewBitmap = bitmapResult;
+            else resultBitmap = bitmapResult;
+            
             picPreview.Image = bitmapResult;
         }
 
@@ -221,22 +221,22 @@ namespace ImageEdgeDetection
             ApplyEdgeDetection(true);
         }
 
-        private void TreatImage()
+        private void TreatImage(bool isPreview)
         {
-            ApplyFilters();
-            ApplyEdgeDetection(false);
+            ApplyFilters(isPreview);
+            ApplyEdgeDetection(isPreview);
         }
 
         private void Check_BlackAndWhite(object sender, EventArgs e)
         {
             this.blackAndWhite = !this.blackAndWhite;
-            TreatImage();
+            TreatImage(true);
         }
 
         private void Check_ColorSwap(object sender, EventArgs e)
         {
             this.colorSwap = !this.colorSwap;
-            TreatImage();
+            TreatImage(true);
         }
     }
 }
