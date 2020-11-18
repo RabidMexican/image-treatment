@@ -194,25 +194,30 @@ namespace ImageEdgeDetection
             }
         }
 
-        private void ApplyFilters(object sender, EventArgs e)
+        private void ApplyFilters()
         {
             Bitmap bitmapResult = originalBitmap;
+            Bitmap source = previewBitmap;
 
-            if (originalBitmap != null)
-            {
+            if (source != null && originalBitmap != null)
+            { 
                 if(blackAndWhite)
                 {
-                    Console.WriteLine("adding black and white");
-                    bitmapResult.ApplyBlackAndWhiteFilter();
+                    bitmapResult = source.ApplyBlackAndWhiteFilter();
                 }
+
                 if(colorSwap)
                 {
-                    Console.WriteLine("adding swap");
-                    bitmapResult.ApplySwapFilterDivide(1,1,2,1);
-                    bitmapResult.ApplySwapFilter();
+                    Color green = Color.Green;
+                    bitmapResult = source.ApplyRainbowFilter();
                 }
-                picPreview.Image = bitmapResult;
+
+                if(!blackAndWhite && !colorSwap)
+                {
+                    bitmapResult = originalBitmap;
+                }
             }
+            picPreview.Image = bitmapResult;
         }
 
         private void NeighbourCountValueChangedEventHandler(object sender, EventArgs e)
@@ -220,32 +225,16 @@ namespace ImageEdgeDetection
             ApplyEdgeDetection(true);
         }
 
-        private void BlackAndWhite_Click(object sender, EventArgs e)
-        {
-            if (originalBitmap == null) return;
-
-            Bitmap selectedSource = originalBitmap;
-            Bitmap bitmapResult = selectedSource.ApplyBlackAndWhiteFilter();
-
-            picPreview.Image = bitmapResult;
-        }
-
-        private void ColorSwap_Click(object sender, EventArgs e)
-        {
-            if (originalBitmap == null) return;
-
-            Image tempImage = ExtBitmap.ApplySwapFilterDivide(new Bitmap(originalBitmap), 1, 1, 2, 1);
-            picPreview.Image = ExtBitmap.ApplySwapFilter(new Bitmap(tempImage));
-        }
-
         private void Check_BlackAndWhite(object sender, EventArgs e)
         {
             this.blackAndWhite = !this.blackAndWhite;
+            ApplyFilters();
         }
 
         private void Check_ColorSwap(object sender, EventArgs e)
         {
             this.colorSwap = !this.colorSwap;
+            ApplyFilters();
         }
     }
 }

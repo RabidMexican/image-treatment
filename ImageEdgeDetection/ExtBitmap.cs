@@ -457,39 +457,59 @@ namespace ImageEdgeDetection
         }
 
         //apply color filter to swap pixel colors
-        public static Bitmap ApplySwapFilterDivide(this Bitmap sourceBitmap, int a, int r, int g, int b)
+        public static Bitmap ApplyMegaFilter(this Bitmap bmp, int max, int min, Color color)
         {
-            Bitmap temp = new Bitmap(sourceBitmap.Width, sourceBitmap.Height);
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
 
-            for (int i = 0; i < sourceBitmap.Width; i++)
+            for (int i = 0; i < bmp.Width; i++)
             {
-                for (int x = 0; x < sourceBitmap.Height; x++)
+                for (int x = 0; x < bmp.Height; x++)
                 {
-                    Color c = sourceBitmap.GetPixel(i, x);
-                    Color cLayer = Color.FromArgb(c.A / a, c.G / g, c.B / b, c.R / r);
-                    temp.SetPixel(i, x, cLayer);
+                    Color c = bmp.GetPixel(i, x);
+                    if (c.G > min && c.G < max)
+                    {
+                        Color cLayer = Color.White;
+                        temp.SetPixel(i, x, cLayer);
+                    }
+                    else temp.SetPixel(i, x, color);
                 }
-
             }
             return temp;
         }
 
-        //apply color filter to swap pixel colors
-        public static Bitmap ApplySwapFilter(this Bitmap sourceBitmap)
+        //Rainbow Filter
+        public static Bitmap ApplyRainbowFilter(this Bitmap bmp)
         {
-            Bitmap temp = new Bitmap(sourceBitmap.Width, sourceBitmap.Height);
-
-            for (int i = 0; i < sourceBitmap.Width; i++)
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
+            int raz = bmp.Height / 4;
+            for (int i = 0; i < bmp.Width; i++)
             {
-                for (int x = 0; x < sourceBitmap.Height; x++)
+                for (int x = 0; x < bmp.Height; x++)
                 {
-                    Color c = sourceBitmap.GetPixel(i, x);
-                    Color cLayer = Color.FromArgb(c.A, c.G, c.B, c.R);
-                    temp.SetPixel(i, x, cLayer);
+                    if (i < (raz))
+                    {
+                        temp.SetPixel(i, x, Color.FromArgb(bmp.GetPixel(i, x).R / 5, bmp.GetPixel(i, x).G, bmp.GetPixel(i, x).B));
+                    }
+                    else if (i < (raz * 2))
+                    {
+                        temp.SetPixel(i, x, Color.FromArgb(bmp.GetPixel(i, x).R, bmp.GetPixel(i, x).G / 5, bmp.GetPixel(i, x).B));
+                    }
+                    else if (i < (raz * 3))
+                    {
+                        temp.SetPixel(i, x, Color.FromArgb(bmp.GetPixel(i, x).R, bmp.GetPixel(i, x).G, bmp.GetPixel(i, x).B / 5));
+                    }
+                    else if (i < (raz * 4))
+                    {
+                        temp.SetPixel(i, x, Color.FromArgb(bmp.GetPixel(i, x).R / 5, bmp.GetPixel(i, x).G, bmp.GetPixel(i, x).B / 5));
+                    }
+                    else
+                    {
+                        temp.SetPixel(i, x, Color.FromArgb(bmp.GetPixel(i, x).R / 5, bmp.GetPixel(i, x).G / 5, bmp.GetPixel(i, x).B / 5));
+                    }
                 }
-
             }
             return temp;
         }
+
     }  
 }
