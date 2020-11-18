@@ -66,7 +66,7 @@
             this.btnOpenOriginal.TabIndex = 15;
             this.btnOpenOriginal.Text = "Load Image";
             this.btnOpenOriginal.UseVisualStyleBackColor = true;
-            this.btnOpenOriginal.Click += new System.EventHandler(this.BtnOpenOriginal_Click);
+            this.btnOpenOriginal.Click += new System.EventHandler(this.OnLoadButtonClick);
             // 
             // btnSaveNewImage
             // 
@@ -77,7 +77,7 @@
             this.btnSaveNewImage.TabIndex = 16;
             this.btnSaveNewImage.Text = "Save Image";
             this.btnSaveNewImage.UseVisualStyleBackColor = true;
-            this.btnSaveNewImage.Click += new System.EventHandler(this.BtnSaveNewImage_Click);
+            this.btnSaveNewImage.Click += new System.EventHandler(this.OnSaveButtonClick);
             // 
             // cmbEdgeDetection
             // 
@@ -107,7 +107,7 @@
             this.cmbEdgeDetection.Name = "cmbEdgeDetection";
             this.cmbEdgeDetection.Size = new System.Drawing.Size(288, 32);
             this.cmbEdgeDetection.TabIndex = 20;
-            this.cmbEdgeDetection.SelectedIndexChanged += new System.EventHandler(this.NeighbourCountValueChangedEventHandler);
+            this.cmbEdgeDetection.SelectedIndexChanged += new System.EventHandler(this.OnEdgeDetectionChange);
             // 
             // label1
             // 
@@ -159,9 +159,9 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(433, 44);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(145, 24);
+            this.checkBox1.Size = new System.Drawing.Size(80, 24);
             this.checkBox1.TabIndex = 26;
-            this.checkBox1.Text = "Black And White";
+            this.checkBox1.Text = "Inverse";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.Check_BlackAndWhite);
             // 

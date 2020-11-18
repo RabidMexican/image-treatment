@@ -31,7 +31,74 @@ namespace ImageEdgeDetection
             cmbEdgeDetection.SelectedIndex = 0;
         }
 
-        private void BtnOpenOriginal_Click(object sender, EventArgs e)
+        private void TreatImage(bool isPreview)
+        {
+            Bitmap image;
+
+            if (isPreview) image = previewBitmap;
+            else image = originalBitmap;
+
+
+            image = ApplyFilters(image);
+            image = ApplyEdgeDetection(image);
+
+            if (image == null) return;
+
+            if (isPreview) picPreview.Image = image;
+            else resultBitmap = image;
+        }
+
+        private Bitmap ApplyFilters(Bitmap image)
+        {
+            if (image != null)
+            {
+                if (colorSwap) image = image.ApplyRainbowFilter();
+                if (blackAndWhite) image = image.ApplyFilterSwap();
+            }
+            return image;
+        }
+
+        private Bitmap ApplyEdgeDetection(Bitmap image)
+        {
+            if (image == null || cmbEdgeDetection.SelectedIndex == -1) return null;
+
+            switch (cmbEdgeDetection.SelectedItem.ToString())
+            {
+                case "None": break;
+                case "Laplacian 3x3": image = image.Laplacian3x3Filter(false); break;
+                case "Laplacian 3x3 Grayscale": image = image.Laplacian3x3Filter(true); break;
+                case "Laplacian 5x5": image = image.Laplacian5x5Filter(false); break;
+                case "Laplacian 5x5 Grayscale": image = image.Laplacian5x5Filter(true); break;
+                case "Laplacian of Gaussian": image = image.LaplacianOfGaussianFilter(); break;
+                case "Laplacian 3x3 of Gaussian 3x3": image = image.Laplacian3x3OfGaussian3x3Filter(); break;
+                case "Laplacian 3x3 of Gaussian 5x5 - 1": image = image.Laplacian3x3OfGaussian5x5Filter1(); break;
+                case "Laplacian 3x3 of Gaussian 5x5 - 2": image = image.Laplacian3x3OfGaussian5x5Filter2(); break;
+                case "Laplacian 5x5 of Gaussian 3x3": image = image.Laplacian5x5OfGaussian3x3Filter(); break;
+                case "Laplacian 5x5 of Gaussian 5x5 - 1": image = image.Laplacian5x5OfGaussian5x5Filter1(); break;
+                case "Laplacian 5x5 of Gaussian 5x5 - 2": image = image.Laplacian5x5OfGaussian5x5Filter2(); break;
+                case "Sobel 3x3": image = image.Sobel3x3Filter(false); break;
+                case "Sobel 3x3 Grayscale": image = image.Sobel3x3Filter(); break;
+                case "Prewitt": image = image.PrewittFilter(false); break;
+                case "Prewitt Grayscale": image = image.PrewittFilter(); break;
+                case "Kirsch": image = image.KirschFilter(false); break;
+                case "Kirsch Grayscale": image = image.KirschFilter(); break;
+            }
+            return image;
+        }
+
+        private void Check_BlackAndWhite(object sender, EventArgs e)
+        {
+            this.blackAndWhite = !this.blackAndWhite;
+            TreatImage(true);
+        }
+
+        private void Check_ColorSwap(object sender, EventArgs e)
+        {
+            this.colorSwap = !this.colorSwap;
+            TreatImage(true);
+        }
+
+        private void OnLoadButtonClick(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select an image file.";
@@ -47,11 +114,11 @@ namespace ImageEdgeDetection
                 previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
                 picPreview.Image = previewBitmap;
 
-                ApplyEdgeDetection(true);
+                TreatImage(true);
             }
         }
 
-        private void BtnSaveNewImage_Click(object sender, EventArgs e)
+        private void OnSaveButtonClick(object sender, EventArgs e)
         {
             TreatImage(false);
 
@@ -80,86 +147,10 @@ namespace ImageEdgeDetection
             }
         }
 
-        private void ApplyEdgeDetection(bool preview)
+        private void OnEdgeDetectionChange(object sender, EventArgs e)
         {
-            if (previewBitmap == null || cmbEdgeDetection.SelectedIndex == -1) return;
-
-            Bitmap selectedSource = null;
-            Bitmap bitmapResult = null;
-
-            if (preview == true) selectedSource = previewBitmap;
-            else selectedSource = resultBitmap;
-
-            if (selectedSource != null)
-            {
-                switch(cmbEdgeDetection.SelectedItem.ToString())
-                {
-                    case "None":                                bitmapResult = selectedSource;                                      break;
-                    case "Laplacian 3x3":                       bitmapResult = selectedSource.Laplacian3x3Filter(false);            break;
-                    case "Laplacian 3x3 Grayscale":             bitmapResult = selectedSource.Laplacian3x3Filter(true);             break;
-                    case "Laplacian 5x5":                       bitmapResult = selectedSource.Laplacian5x5Filter(false);            break;
-                    case "Laplacian 5x5 Grayscale":             bitmapResult = selectedSource.Laplacian5x5Filter(true);             break;
-                    case "Laplacian of Gaussian":               bitmapResult = selectedSource.LaplacianOfGaussianFilter();          break;
-                    case "Laplacian 3x3 of Gaussian 3x3":       bitmapResult = selectedSource.Laplacian3x3OfGaussian3x3Filter();    break;
-                    case "Laplacian 3x3 of Gaussian 5x5 - 1":   bitmapResult = selectedSource.Laplacian3x3OfGaussian5x5Filter1();   break;
-                    case "Laplacian 3x3 of Gaussian 5x5 - 2":   bitmapResult = selectedSource.Laplacian3x3OfGaussian5x5Filter2();   break;
-                    case "Laplacian 5x5 of Gaussian 3x3":       bitmapResult = selectedSource.Laplacian5x5OfGaussian3x3Filter();    break;
-                    case "Laplacian 5x5 of Gaussian 5x5 - 1":   bitmapResult = selectedSource.Laplacian5x5OfGaussian5x5Filter1();   break;
-                    case "Laplacian 5x5 of Gaussian 5x5 - 2":   bitmapResult = selectedSource.Laplacian5x5OfGaussian5x5Filter2();   break;
-                    case "Sobel 3x3":                           bitmapResult = selectedSource.Sobel3x3Filter(false);                break;
-                    case "Sobel 3x3 Grayscale":                 bitmapResult = selectedSource.Sobel3x3Filter();                     break;
-                    case "Prewitt":                             bitmapResult = selectedSource.PrewittFilter(false);                 break;
-                    case "Prewitt Grayscale":                   bitmapResult = selectedSource.PrewittFilter();                      break;
-                    case "Kirsch":                              bitmapResult = selectedSource.KirschFilter(false);                  break;
-                    case "Kirsch Grayscale":                    bitmapResult = selectedSource.KirschFilter();                       break;
-                }
-            }
-
-            if (bitmapResult != null)
-            {
-                if (preview != true) resultBitmap = bitmapResult;
-                picPreview.Image = bitmapResult;
-            }
+            TreatImage(true); 
         }
 
-        private void ApplyFilters(bool isPreview)
-        {
-            Bitmap bitmapResult = originalBitmap;
-            Bitmap source = previewBitmap;
-
-            if (source != null && originalBitmap != null)
-            {
-                if (colorSwap)      bitmapResult = source.ApplyRainbowFilter();
-                if (blackAndWhite)  bitmapResult = source.ApplyBlackAndWhiteFilter();
-            }
-
-            if(isPreview) previewBitmap = bitmapResult;
-            else resultBitmap = bitmapResult;
-            
-            picPreview.Image = bitmapResult;
-        }
-
-        private void NeighbourCountValueChangedEventHandler(object sender, EventArgs e)
-        {
-            ApplyEdgeDetection(true);
-        }
-
-        private void TreatImage(bool isPreview)
-        {
-            ApplyFilters(isPreview);
-            ApplyEdgeDetection(isPreview);
-        }
-
-        private void Check_BlackAndWhite(object sender, EventArgs e)
-        {
-            this.blackAndWhite = !this.blackAndWhite;
-            TreatImage(true);
-        }
-
-        private void Check_ColorSwap(object sender, EventArgs e)
-        {
-            this.colorSwap = !this.colorSwap;
-            TreatImage(true);
-        }
     }
 }

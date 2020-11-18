@@ -4,9 +4,6 @@
  * Licensed under Ms-PL 
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -439,44 +436,6 @@ namespace ImageEdgeDetection
             return resultBitmap;
         }
 
-        //black and white filter
-        public static Bitmap ApplyBlackAndWhiteFilter(this Bitmap sourceBitmap)
-        {
-            int rgb;
-            Color c;
-
-            for (int y = 0; y < sourceBitmap.Height; y++)
-                for (int x = 0; x < sourceBitmap.Width; x++)
-                {
-                    c = sourceBitmap.GetPixel(x, y);
-                    rgb = (int)((c.R + c.G + c.B) / 3);
-                    sourceBitmap.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
-                }
-            return sourceBitmap;
-
-        }
-
-        //apply color filter to swap pixel colors
-        public static Bitmap ApplyMegaFilter(this Bitmap bmp, int max, int min, Color color)
-        {
-            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
-
-            for (int i = 0; i < bmp.Width; i++)
-            {
-                for (int x = 0; x < bmp.Height; x++)
-                {
-                    Color c = bmp.GetPixel(i, x);
-                    if (c.G > min && c.G < max)
-                    {
-                        Color cLayer = Color.White;
-                        temp.SetPixel(i, x, cLayer);
-                    }
-                    else temp.SetPixel(i, x, color);
-                }
-            }
-            return temp;
-        }
-
         //Rainbow Filter
         public static Bitmap ApplyRainbowFilter(this Bitmap bmp)
         {
@@ -507,6 +466,26 @@ namespace ImageEdgeDetection
                         temp.SetPixel(i, x, Color.FromArgb(bmp.GetPixel(i, x).R / 5, bmp.GetPixel(i, x).G / 5, bmp.GetPixel(i, x).B / 5));
                     }
                 }
+            }
+            return temp;
+        }
+
+        //apply color filter to swap pixel colors
+        public static Bitmap ApplyFilterSwap(this Bitmap bmp)
+        {
+
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
+
+
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int x = 0; x < bmp.Height; x++)
+                {
+                    Color c = bmp.GetPixel(i, x);
+                    Color cLayer = Color.FromArgb(c.A, c.G, c.B, c.R);
+                    temp.SetPixel(i, x, cLayer);
+                }
+
             }
             return temp;
         }
