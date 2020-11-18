@@ -211,12 +211,8 @@ namespace ImageEdgeDetection
                     Color green = Color.Green;
                     bitmapResult = source.ApplyRainbowFilter();
                 }
-
-                if(!blackAndWhite && !colorSwap)
-                {
-                    bitmapResult = originalBitmap;
-                }
             }
+            previewBitmap = bitmapResult;
             picPreview.Image = bitmapResult;
         }
 
@@ -225,16 +221,22 @@ namespace ImageEdgeDetection
             ApplyEdgeDetection(true);
         }
 
+        private void TreatImage()
+        {
+            ApplyFilters();
+            ApplyEdgeDetection(false);
+        }
+
         private void Check_BlackAndWhite(object sender, EventArgs e)
         {
             this.blackAndWhite = !this.blackAndWhite;
-            ApplyFilters();
+            TreatImage();
         }
 
         private void Check_ColorSwap(object sender, EventArgs e)
         {
             this.colorSwap = !this.colorSwap;
-            ApplyFilters();
+            TreatImage();
         }
     }
 }
