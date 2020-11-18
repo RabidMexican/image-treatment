@@ -182,9 +182,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnOpenOriginal);
-            this.panel1.Location = new System.Drawing.Point(17, 644);
+            this.panel1.Location = new System.Drawing.Point(12, 644);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(595, 66);
+            this.panel1.Size = new System.Drawing.Size(600, 66);
             this.panel1.TabIndex = 28;
             // 
             // panel2
@@ -193,9 +193,9 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.checkBox2);
-            this.panel2.Location = new System.Drawing.Point(17, 716);
+            this.panel2.Location = new System.Drawing.Point(12, 716);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(595, 81);
+            this.panel2.Size = new System.Drawing.Size(600, 81);
             this.panel2.TabIndex = 29;
             // 
             // panel3
@@ -203,9 +203,9 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.cmbEdgeDetection);
-            this.panel3.Location = new System.Drawing.Point(17, 803);
+            this.panel3.Location = new System.Drawing.Point(12, 803);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(595, 54);
+            this.panel3.Size = new System.Drawing.Size(600, 54);
             this.panel3.TabIndex = 30;
             // 
             // panel4
@@ -213,9 +213,9 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.btnSaveNewImage);
-            this.panel4.Location = new System.Drawing.Point(17, 863);
+            this.panel4.Location = new System.Drawing.Point(12, 863);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(595, 72);
+            this.panel4.Size = new System.Drawing.Size(600, 72);
             this.panel4.TabIndex = 31;
             // 
             // MainForm

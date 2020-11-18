@@ -67,14 +67,8 @@ namespace ImageEdgeDetection
                     string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
                     ImageFormat imgFormat = ImageFormat.Png;
 
-                    if (fileExtension == "BMP")
-                    {
-                        imgFormat = ImageFormat.Bmp;
-                    }
-                    else if (fileExtension == "JPG")
-                    {
-                        imgFormat = ImageFormat.Jpeg;
-                    }
+                    if (fileExtension == "BMP")         imgFormat = ImageFormat.Bmp;
+                    else if (fileExtension == "JPG")    imgFormat = ImageFormat.Jpeg;
 
                     StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
                     resultBitmap.Save(streamWriter.BaseStream, imgFormat);
@@ -88,26 +82,16 @@ namespace ImageEdgeDetection
 
         private void ApplyEdgeDetection(bool preview)
         {
-            if (previewBitmap == null || cmbEdgeDetection.SelectedIndex == -1)
-            {
-                return;
-            }
+            if (previewBitmap == null || cmbEdgeDetection.SelectedIndex == -1) return;
 
             Bitmap selectedSource = null;
             Bitmap bitmapResult = null;
 
-            if (preview == true)
-            {
-                selectedSource = previewBitmap;
-            }
-            else
-            {
-                selectedSource = resultBitmap;
-            }
+            if (preview == true) selectedSource = previewBitmap;
+            else selectedSource = resultBitmap;
 
             if (selectedSource != null)
             {
-
                 switch(cmbEdgeDetection.SelectedItem.ToString())
                 {
                     case "None":                                bitmapResult = selectedSource;                                      break;
@@ -128,7 +112,6 @@ namespace ImageEdgeDetection
                     case "Prewitt Grayscale":                   bitmapResult = selectedSource.PrewittFilter();                      break;
                     case "Kirsch":                              bitmapResult = selectedSource.KirschFilter(false);                  break;
                     case "Kirsch Grayscale":                    bitmapResult = selectedSource.KirschFilter();                       break;
-
                 }
             }
 
