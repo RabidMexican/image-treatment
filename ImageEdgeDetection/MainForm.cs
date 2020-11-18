@@ -183,10 +183,7 @@ namespace ImageEdgeDetection
 
             if (bitmapResult != null)
             {
-                if (preview != true)
-                {
-                    resultBitmap = bitmapResult;
-                }
+                if (preview != true) resultBitmap = bitmapResult;
                 picPreview.Image = bitmapResult;
             }
         }
@@ -205,7 +202,6 @@ namespace ImageEdgeDetection
 
                 if(colorSwap)
                 {
-                    Color green = Color.Green;
                     bitmapResult = source.ApplyRainbowFilter();
                 }
             }
