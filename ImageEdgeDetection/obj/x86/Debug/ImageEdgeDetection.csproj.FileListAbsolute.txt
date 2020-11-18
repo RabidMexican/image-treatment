@@ -1,0 +1,16 @@
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.exe
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.pdb
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.MainForm.resources
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.Properties.Resources.resources
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csproj.GenerateResource.Cache
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.exe
+C:\Work\Projects\HowToSamples_Repository\ImageEdgeDetection\ImageEdgeDetection\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.pdb
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.exe
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.pdb
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csprojAssemblyReference.cache
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.MainForm.resources
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.Properties.Resources.resources
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csproj.GenerateResource.cache
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csproj.CoreCompileInputs.cache
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.exe
+C:\Users\benpo\Documents\S7_Soft_Ind\Image Edge Detecting\C#\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.pdb
