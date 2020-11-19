@@ -78,6 +78,7 @@
             this.btnSaveNewImage.Text = "Save Image";
             this.btnSaveNewImage.UseVisualStyleBackColor = true;
             this.btnSaveNewImage.Click += new System.EventHandler(this.OnSaveButtonClick);
+            this.btnSaveNewImage.Enabled = false;
             // 
             // cmbEdgeDetection
             // 
@@ -108,6 +109,7 @@
             this.cmbEdgeDetection.Size = new System.Drawing.Size(288, 32);
             this.cmbEdgeDetection.TabIndex = 20;
             this.cmbEdgeDetection.SelectedIndexChanged += new System.EventHandler(this.OnEdgeDetectionChange);
+            this.cmbEdgeDetection.Enabled = false;
             // 
             // label1
             // 
@@ -119,6 +121,7 @@
             this.label1.Size = new System.Drawing.Size(195, 26);
             this.label1.TabIndex = 22;
             this.label1.Text = "Choose an image :";
+
             // 
             // label2
             // 
@@ -164,6 +167,7 @@
             this.checkBox1.Text = "Inverse";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.Check_BlackAndWhite);
+            this.checkBox1.Enabled = false;
             // 
             // checkBox2
             // 
@@ -176,6 +180,7 @@
             this.checkBox2.Text = "Rainbow";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.Check_ColorSwap);
+            this.checkBox2.Enabled = false;
             // 
             // panel1
             // 
@@ -186,6 +191,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 66);
             this.panel1.TabIndex = 28;
+
             // 
             // panel2
             // 
@@ -197,6 +203,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 81);
             this.panel2.TabIndex = 29;
+         
             // 
             // panel3
             // 
@@ -207,6 +214,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 54);
             this.panel3.TabIndex = 30;
+        
             // 
             // panel4
             // 
@@ -217,6 +225,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(600, 72);
             this.panel4.TabIndex = 31;
+          
             // 
             // MainForm
             // 

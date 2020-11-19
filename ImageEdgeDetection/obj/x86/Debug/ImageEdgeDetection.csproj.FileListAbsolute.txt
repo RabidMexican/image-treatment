@@ -23,3 +23,12 @@ C:\Users\benpo\git\image-treatment\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDet
 C:\Users\benpo\git\image-treatment\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.pdb
 C:\Users\benpo\git\image-treatment\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.exe
 C:\Users\benpo\git\image-treatment\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.pdb
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.exe
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\bin\Debug\ImageEdgeDetection.pdb
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csprojAssemblyReference.cache
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.MainForm.resources
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.Properties.Resources.resources
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csproj.GenerateResource.cache
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.csproj.CoreCompileInputs.cache
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.exe
+C:\Users\Victo\Desktop\projetUnitTest\ImageEdgeDetection\obj\x86\Debug\ImageEdgeDetection.pdb

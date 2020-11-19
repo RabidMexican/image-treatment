@@ -54,7 +54,13 @@ namespace ImageEdgeDetection
             {
                 if (colorSwap) image = image.ApplyRainbowFilter();
                 if (blackAndWhite) image = image.ApplyFilterSwap();
+
+                checkBox1.Enabled = true;
+                checkBox2.Enabled = true;
             }
+
+   
+
             return image;
         }
 
@@ -89,12 +95,16 @@ namespace ImageEdgeDetection
         private void Check_BlackAndWhite(object sender, EventArgs e)
         {
             this.blackAndWhite = !this.blackAndWhite;
+            checkBox1.Enabled = false;
+            checkBox2.Enabled = false;
             TreatImage(true);
         }
 
         private void Check_ColorSwap(object sender, EventArgs e)
         {
             this.colorSwap = !this.colorSwap;
+            checkBox1.Enabled = false;
+            checkBox2.Enabled = false;
             TreatImage(true);
         }
 
@@ -113,6 +123,11 @@ namespace ImageEdgeDetection
 
                 previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
                 picPreview.Image = previewBitmap;
+
+                cmbEdgeDetection.Enabled = true;
+                checkBox1.Enabled = true;
+                checkBox2.Enabled = true;
+                btnSaveNewImage.Enabled = true;
 
                 TreatImage(true);
             }
