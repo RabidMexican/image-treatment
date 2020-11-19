@@ -102,13 +102,13 @@ namespace ImageEdgeDetection
 
         private void Check_BlackAndWhite(object sender, EventArgs e)
         {
-            this.blackAndWhite = !this.blackAndWhite;
+            blackAndWhite = !blackAndWhite;
             TreatImage(true);
         }
 
         private void Check_ColorSwap(object sender, EventArgs e)
         {
-            this.colorSwap = !this.colorSwap;
+            colorSwap = !colorSwap;
             TreatImage(true);
         }
 
