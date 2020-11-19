@@ -33,11 +33,11 @@ namespace ImageEdgeDetection
 
         private void TreatImage(bool isPreview)
         {
+            SetIsLoading(true);
             Bitmap image;
 
             if (isPreview) image = previewBitmap;
             else image = originalBitmap;
-
 
             image = ApplyFilters(image);
             image = ApplyEdgeDetection(image);
@@ -46,6 +46,8 @@ namespace ImageEdgeDetection
 
             if (isPreview) picPreview.Image = image;
             else resultBitmap = image;
+
+            SetIsLoading(false);
         }
 
         private Bitmap ApplyFilters(Bitmap image)
@@ -54,13 +56,7 @@ namespace ImageEdgeDetection
             {
                 if (colorSwap) image = image.ApplyRainbowFilter();
                 if (blackAndWhite) image = image.ApplyFilterSwap();
-
-                checkBox1.Enabled = true;
-                checkBox2.Enabled = true;
             }
-
-   
-
             return image;
         }
 
@@ -71,23 +67,40 @@ namespace ImageEdgeDetection
             switch (cmbEdgeDetection.SelectedItem.ToString())
             {
                 case "None": break;
-                case "Laplacian 3x3": image = image.Laplacian3x3Filter(false); break;
-                case "Laplacian 3x3 Grayscale": image = image.Laplacian3x3Filter(true); break;
-                case "Laplacian 5x5": image = image.Laplacian5x5Filter(false); break;
-                case "Laplacian 5x5 Grayscale": image = image.Laplacian5x5Filter(true); break;
-                case "Laplacian of Gaussian": image = image.LaplacianOfGaussianFilter(); break;
-                case "Laplacian 3x3 of Gaussian 3x3": image = image.Laplacian3x3OfGaussian3x3Filter(); break;
-                case "Laplacian 3x3 of Gaussian 5x5 - 1": image = image.Laplacian3x3OfGaussian5x5Filter1(); break;
-                case "Laplacian 3x3 of Gaussian 5x5 - 2": image = image.Laplacian3x3OfGaussian5x5Filter2(); break;
-                case "Laplacian 5x5 of Gaussian 3x3": image = image.Laplacian5x5OfGaussian3x3Filter(); break;
-                case "Laplacian 5x5 of Gaussian 5x5 - 1": image = image.Laplacian5x5OfGaussian5x5Filter1(); break;
-                case "Laplacian 5x5 of Gaussian 5x5 - 2": image = image.Laplacian5x5OfGaussian5x5Filter2(); break;
-                case "Sobel 3x3": image = image.Sobel3x3Filter(false); break;
-                case "Sobel 3x3 Grayscale": image = image.Sobel3x3Filter(); break;
-                case "Prewitt": image = image.PrewittFilter(false); break;
-                case "Prewitt Grayscale": image = image.PrewittFilter(); break;
-                case "Kirsch": image = image.KirschFilter(false); break;
-                case "Kirsch Grayscale": image = image.KirschFilter(); break;
+                case "Laplacian 3x3": 
+                    image = image.Laplacian3x3Filter(false); break;
+                case "Laplacian 3x3 Grayscale": 
+                    image = image.Laplacian3x3Filter(true); break;
+                case "Laplacian 5x5": 
+                    image = image.Laplacian5x5Filter(false); break;
+                case "Laplacian 5x5 Grayscale": 
+                    image = image.Laplacian5x5Filter(true); break;
+                case "Laplacian of Gaussian": 
+                    image = image.LaplacianOfGaussianFilter(); break;
+                case "Laplacian 3x3 of Gaussian 3x3": 
+                    image = image.Laplacian3x3OfGaussian3x3Filter(); break;
+                case "Laplacian 3x3 of Gaussian 5x5 - 1": 
+                    image = image.Laplacian3x3OfGaussian5x5Filter1(); break;
+                case "Laplacian 3x3 of Gaussian 5x5 - 2": 
+                    image = image.Laplacian3x3OfGaussian5x5Filter2(); break;
+                case "Laplacian 5x5 of Gaussian 3x3": 
+                    image = image.Laplacian5x5OfGaussian3x3Filter(); break;
+                case "Laplacian 5x5 of Gaussian 5x5 - 1": 
+                    image = image.Laplacian5x5OfGaussian5x5Filter1(); break;
+                case "Laplacian 5x5 of Gaussian 5x5 - 2": 
+                    image = image.Laplacian5x5OfGaussian5x5Filter2(); break;
+                case "Sobel 3x3": 
+                    image = image.Sobel3x3Filter(false); break;
+                case "Sobel 3x3 Grayscale": 
+                    image = image.Sobel3x3Filter(); break;
+                case "Prewitt": 
+                    image = image.PrewittFilter(false); break;
+                case "Prewitt Grayscale": 
+                    image = image.PrewittFilter(); break;
+                case "Kirsch": 
+                    image = image.KirschFilter(false); break;
+                case "Kirsch Grayscale": 
+                    image = image.KirschFilter(); break;
             }
             return image;
         }
@@ -95,16 +108,12 @@ namespace ImageEdgeDetection
         private void Check_BlackAndWhite(object sender, EventArgs e)
         {
             this.blackAndWhite = !this.blackAndWhite;
-            checkBox1.Enabled = false;
-            checkBox2.Enabled = false;
             TreatImage(true);
         }
 
         private void Check_ColorSwap(object sender, EventArgs e)
         {
             this.colorSwap = !this.colorSwap;
-            checkBox1.Enabled = false;
-            checkBox2.Enabled = false;
             TreatImage(true);
         }
 
@@ -123,11 +132,6 @@ namespace ImageEdgeDetection
 
                 previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
                 picPreview.Image = previewBitmap;
-
-                cmbEdgeDetection.Enabled = true;
-                checkBox1.Enabled = true;
-                checkBox2.Enabled = true;
-                btnSaveNewImage.Enabled = true;
 
                 TreatImage(true);
             }
@@ -160,6 +164,14 @@ namespace ImageEdgeDetection
                     resultBitmap = null;
                 }
             }
+        }
+
+        private void SetIsLoading(bool isLoading)
+        {
+            checkBox1.Enabled = !isLoading;
+            checkBox2.Enabled = !isLoading;
+            btnSaveNewImage.Enabled = !isLoading;
+            cmbEdgeDetection.Enabled = !isLoading;
         }
 
         private void OnEdgeDetectionChange(object sender, EventArgs e)
