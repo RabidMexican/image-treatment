@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ImageEdgeDetection;
+using System.Drawing;
+using System.IO;
 
 namespace ImageEdgeDetectionTest
 {
@@ -7,10 +9,26 @@ namespace ImageEdgeDetectionTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod()
+        public void TestSwapMethod()
         {
-            
-            //ExtBitmap.ApplyFilterSwap();
+            Bitmap testImage = getTestImage("./images/bag.png");
+            Bitmap realResult = getTestImage("./images/bag_swap.png");
+
+            Bitmap result = ExtBitmap.ApplyFilterSwap(testImage);
+            Assert.AreEqual(result, realResult);
+           
         }
+
+        public Bitmap getTestImage(string imageName)
+        {
+         /*   ImageEdgeDetectionTest.;
+            StreamReader streamReader = new StreamReader();
+            Bitmap image = (Bitmap)Image.FromStream(streamReader.BaseStream);
+            streamReader.Close();*/
+
+           // return image;
+        }
+
+        
     }
 }

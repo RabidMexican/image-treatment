@@ -467,6 +467,7 @@ namespace ImageEdgeDetection
                     }
                 }
             }
+
             return temp;
         }
 
