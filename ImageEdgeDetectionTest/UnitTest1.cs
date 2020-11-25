@@ -29,14 +29,5 @@ namespace ImageEdgeDetectionTest
             Assert.AreEqual(resultImageHash, realResultImageHash);
 
         }
-
-        public Bitmap getTestImage(string imageName)
-        {
-            StreamReader streamReader = new StreamReader(imageName);
-            Bitmap image = (Bitmap)Image.FromStream(streamReader.BaseStream);
-            streamReader.Close();
-
-            return image;
-        }
     }
 }
