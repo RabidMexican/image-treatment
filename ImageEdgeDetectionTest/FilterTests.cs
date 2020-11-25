@@ -1,18 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ImageEdgeDetection;
 using System.Drawing;
-using System.IO;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 
 namespace ImageEdgeDetectionTest
 {
     [TestClass]
-    public class UnitTest1
+    public class FilterTests
     {
         [TestMethod]
-        public void TestSwapMethod()
+        public void TestSwapFilter()
         {
             //get images from Resources
             Bitmap testImage = Properties.Resources.original;
@@ -27,6 +23,11 @@ namespace ImageEdgeDetectionTest
 
             //comparison
             Assert.AreEqual(resultImageHash, realResultImageHash);
+
+        }
+
+        public void TestRainbowFilter()
+        {
 
         }
     }
