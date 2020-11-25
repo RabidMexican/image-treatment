@@ -2,10 +2,16 @@
 ## Ben Pocklington & Victor Bonny
 
 ### Covered filters
-* Swap Filter (100%)
-* Rainbow Filter (100%)
+
+| Filter        | Test coverage | 
+| ------------- | ------------- | 
+| Swap          | 100%          | 
+| Rainbow       | 100%          |
 
 ### Covered Edge Detetiction Algorithms
-* Laplacian 3x3 (100%)
-* Sobel 3x3 (100%)
-* Pewitt (100%)
+
+| Edge Detection  | Test coverage | 
+| --------------- | ------------- | 
+| Laplacian 3x3   | 100%          | 
+| Sobel 3x3       | 100%          |
+| Pewitt          | 100%          |
