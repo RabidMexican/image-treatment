@@ -69,6 +69,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EdgeDetetctionTests.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +97,14 @@
   <ItemGroup>
     <None Include="Resources\original.png" />
     <None Include="Resources\original_swap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\original_wide.jpg" />
+    <Content Include="Resources\original_laplacian3x3.png" />
+    <Content Include="Resources\original_prewitt.png" />
+    <Content Include="Resources\original_rainbow.png" />
+    <Content Include="Resources\original_sobel3x3.png" />
+    <Content Include="Resources\original_wide_rainbow.png" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -472,7 +472,7 @@ namespace ImageEdgeDetection
         }
 
         //apply color filter to swap pixel colors
-        public static Bitmap ApplyFilterSwap(this Bitmap bmp)
+        public static Bitmap ApplySwapFilter(this Bitmap bmp)
         {
 
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);

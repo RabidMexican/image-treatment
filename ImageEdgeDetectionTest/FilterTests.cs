@@ -15,7 +15,7 @@ namespace ImageEdgeDetectionTest
             Bitmap realResult = Properties.Resources.original_swap;
 
             //apply filter on test image
-            Bitmap result = ExtBitmap.ApplyFilterSwap(testImage);
+            Bitmap result = ExtBitmap.ApplySwapFilter(testImage);
 
             //get Hash from images
             string resultImageHash = TestFunctions.GetImageHash(result);
@@ -26,9 +26,22 @@ namespace ImageEdgeDetectionTest
 
         }
 
+        [TestMethod]
         public void TestRainbowFilter()
         {
+            //get images from Resources
+            Bitmap testImage = Properties.Resources.original_wide;
+            Bitmap realResult = Properties.Resources.original_wide_rainbow;
 
+            //apply filter on test image
+            Bitmap result = ExtBitmap.ApplyRainbowFilter(testImage);
+
+            //get Hash from images
+            string resultImageHash = TestFunctions.GetImageHash(result);
+            string realResultImageHash = TestFunctions.GetImageHash(realResult);
+
+            //comparison
+            Assert.AreEqual(resultImageHash, realResultImageHash);
         }
     }
 }

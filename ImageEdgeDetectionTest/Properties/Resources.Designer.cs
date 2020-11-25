@@ -73,9 +73,69 @@ namespace ImageEdgeDetectionTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap original_laplacian3x3 {
+            get {
+                object obj = ResourceManager.GetObject("original_laplacian3x3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap original_prewitt {
+            get {
+                object obj = ResourceManager.GetObject("original_prewitt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap original_rainbow {
+            get {
+                object obj = ResourceManager.GetObject("original_rainbow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap original_sobel3x3 {
+            get {
+                object obj = ResourceManager.GetObject("original_sobel3x3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap original_swap {
             get {
                 object obj = ResourceManager.GetObject("original_swap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap original_wide {
+            get {
+                object obj = ResourceManager.GetObject("original_wide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap original_wide_rainbow {
+            get {
+                object obj = ResourceManager.GetObject("original_wide_rainbow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

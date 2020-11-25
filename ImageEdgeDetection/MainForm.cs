@@ -50,7 +50,7 @@ namespace ImageEdgeDetection
             if (image != null)
             {
                 if (colorSwap) image = image.ApplyRainbowFilter();
-                if (blackAndWhite) image = image.ApplyFilterSwap();
+                if (blackAndWhite) image = image.ApplySwapFilter();
             }
             return image;
         }
