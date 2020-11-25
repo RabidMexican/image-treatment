@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace ImageEdgeDetectionTest
 {
-    class Test
+    class TestFunctions
     {
         public static string GetImageHash(Bitmap bmpSource)
         {
